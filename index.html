@@ -16,12 +16,13 @@
     <div class="wrapper">
       <header>
         <img src="images/logo.png" alt="SheCodes logo" class="logo" />
-        <form>
+        <form id="search-city-form">
           <input
             type="search"
             placeholder="Enter a city.."
             required
             class="enter-city"
+            id="enter-city"
           />
           <input type="submit" value="Search" class="search-city" />
         </form>
@@ -29,7 +30,7 @@
       <main>
         <div class="weather">
           <div class="weather-info">
-            <h1>Paris</h1>
+            <h1 id="heading">Paris</h1>
             <p>
               Tuesday 14:49, scattered clouds
               <br />
@@ -71,5 +72,6 @@
       </footer>
     </div>
   </body>
+  <script src="src/script.js"></script>
   <!-- enter-city font color won't change -->
 </html>

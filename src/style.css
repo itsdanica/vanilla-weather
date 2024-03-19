@@ -30,7 +30,7 @@ form {
   height: 50px;
   line-height: 20px;
   padding: 15px 20px;
-  width: 320px;
+  width: 75%;
 }
 .search-city {
   background: #885df1;
@@ -41,7 +41,7 @@ form {
   font-weight: 700;
   height: 50px;
   padding: 15px 0;
-  width: 115px;
+  width: 20%;
 }
 .search-city:hover {
   cursor: pointer;
