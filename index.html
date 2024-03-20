@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/axios@1.6.7/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="wrapper">
@@ -32,9 +33,13 @@
           <div class="weather-info">
             <h1 id="heading">Paris</h1>
             <p>
-              Tuesday 14:49, scattered clouds
+              <span id="day">Tuesday</span> <span id="hour">14</span>:<span
+                id="minute"
+                >49</span
+              >, <span id="sky">scattered clouds</span>
               <br />
-              Humidity: <strong>66%</strong>, Wind: <strong>3.13km/h</strong>
+              Humidity: <strong id="humidity">66%</strong>, Wind:
+              <strong id="wind-speed">3.13km/h</strong>
             </p>
           </div>
           <div class="temp-info">
@@ -74,4 +79,5 @@
   </body>
   <script src="src/script.js"></script>
   <!-- enter-city font color won't change -->
+  <!-- cannot set properties of null (setting 'innerHTML' (line 13) -->
 </html>
