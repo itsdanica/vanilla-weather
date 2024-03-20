@@ -11,15 +11,12 @@ function changeWeather(response) {
   heading.innerHTML = response.data.city;
   temp.innerHTML = Math.round(response.data.temperature.current);
   sky.innerHTML = response.data.condition.description;
-  console.log(`sky: ${response.data.condition.description}`);
-  humidity.innerHTML = response.data.temperature.humidity;
-  console.log(`humidity: ${response.data.temperature.humidity}`);
-  windSpeed.innerHTML = response.data.wind.speed;
-  console.log(`wind speed:${response.data.wind.speed}`);
+  humidity.innerHTML = `${response.data.temperature.humidity}%`;
+  windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
 }
 function searchCity(city) {
   let apiKey = `d804a6ef932oaf3dbf673f68a8ff6cta`;
-  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&unit=metric`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
   axios.get(apiUrl).then(changeWeather);
 }
 function submitCity(event) {

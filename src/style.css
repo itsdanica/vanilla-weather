@@ -73,6 +73,8 @@ p strong {
   justify-content: space-between;
 }
 .temp-img {
+  bottom: 10px;
+  left: 13px;
   position: relative;
   margin: 10px 0;
 }
