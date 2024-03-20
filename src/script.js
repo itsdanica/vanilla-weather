@@ -1,22 +1,43 @@
+function returnDate(date) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let day = days[date.getDay()];
+  console.log(day);
+  let hour = date.getHours();
+  console.log(hour);
+  let minute = date.getMinutes();
+  if (minute < 10) {
+    minute = "0" + minute;
+  }
+  console.log(minute);
+  return `${day}, ${hour}:${minute}, `;
+}
 function changeWeather(response) {
   let heading = document.querySelector("#heading");
-  // let tempImg = document.querySelector(".tempImg");
+  let tempImg = document.querySelector(".temp-img");
   let tempNumber = document.querySelector(".temp-number");
   let tempScale = document.querySelector(".temp-scale");
-  let day = document.querySelector("#day");
-  // let hour = document.querySelector("#hour");
-  // let minute = document.querySelector("#minute");
+  let date = new Date(response.data.time * 1000);
+  let currentDate = document.querySelector("#current-date");
   let sky = document.querySelector("#sky");
   let wordHumidity = document.querySelector("#word-humidity");
   let humidity = document.querySelector("#humidity");
   let comma = document.querySelector("#comma");
   let wordWind = document.querySelector("#word-wind");
   let windSpeed = document.querySelector("#wind-speed");
-  console.log(response);
+  console.log(date);
   heading.innerHTML = response.data.city;
-  day.innerHTML = ``;
+  tempImg.innerHTML = `<img src="${response.data.condition.icon_url}" alt="${response.data.condition.icon}" width="90"/>`;
   tempNumber.innerHTML = Math.round(response.data.temperature.current);
   tempScale.innerHTML = `°C`;
+  currentDate.innerHTML = returnDate(date);
   sky.innerHTML = response.data.condition.description;
   wordHumidity.innerHTML = `Humidity: `;
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
