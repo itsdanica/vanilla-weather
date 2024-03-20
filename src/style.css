@@ -91,6 +91,7 @@ p strong {
   font-weight: 400;
   line-height: 1;
   position: relative;
+  top: 3px;
 }
 footer {
   color: #27214266;

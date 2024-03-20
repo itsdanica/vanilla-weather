@@ -1,17 +1,27 @@
 function changeWeather(response) {
   let heading = document.querySelector("#heading");
-  let temp = document.querySelector(".temp-number");
-  // let day = document.querySelector("#day");
+  // let tempImg = document.querySelector(".tempImg");
+  let tempNumber = document.querySelector(".temp-number");
+  let tempScale = document.querySelector(".temp-scale");
+  let day = document.querySelector("#day");
   // let hour = document.querySelector("#hour");
   // let minute = document.querySelector("#minute");
   let sky = document.querySelector("#sky");
+  let wordHumidity = document.querySelector("#word-humidity");
   let humidity = document.querySelector("#humidity");
+  let comma = document.querySelector("#comma");
+  let wordWind = document.querySelector("#word-wind");
   let windSpeed = document.querySelector("#wind-speed");
   console.log(response);
   heading.innerHTML = response.data.city;
-  temp.innerHTML = Math.round(response.data.temperature.current);
+  day.innerHTML = ``;
+  tempNumber.innerHTML = Math.round(response.data.temperature.current);
+  tempScale.innerHTML = `°C`;
   sky.innerHTML = response.data.condition.description;
+  wordHumidity.innerHTML = `Humidity: `;
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
+  comma.innerHTML = `,`;
+  wordWind.innerHTML = `Wind: `;
   windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
 }
 function searchCity(city) {
