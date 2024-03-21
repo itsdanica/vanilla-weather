@@ -32,10 +32,19 @@ function changeWeather(response) {
   let comma = document.querySelector("#comma");
   let wordWind = document.querySelector("#word-wind");
   let windSpeed = document.querySelector("#wind-speed");
-  console.log(date);
+  console.log(response);
   heading.innerHTML = response.data.city;
   tempImg.innerHTML = `<img src="${response.data.condition.icon_url}" alt="${response.data.condition.icon}" width="90"/>`;
   tempNumber.innerHTML = Math.round(response.data.temperature.current);
+  // if (
+  //   response.data.country == "United States of America" ||
+  //   response.data.country == "Myanmar" ||
+  //   response.data.country == "Liberia"
+  // ) {
+  //   tempScale.innerHTML = `°F`;
+  // } else {
+  //   tempScale.innerHTML = `°C`;
+  // }
   tempScale.innerHTML = `°C`;
   currentDate.innerHTML = returnDate(date);
   sky.innerHTML = response.data.condition.description;
@@ -43,6 +52,15 @@ function changeWeather(response) {
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
   comma.innerHTML = `,`;
   wordWind.innerHTML = `Wind: `;
+  // if (
+  //   response.data.country == "United States of America" ||
+  //   response.data.country == "Myanmar" ||
+  //   response.data.country == "Liberia"
+  // ) {
+  //   windSpeed.innerHTML = `${response.data.wind.speed}mph`;
+  // } else {
+  //   windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
+  // }
   windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
 }
 function searchCity(city) {
@@ -55,5 +73,6 @@ function submitCity(event) {
   let searchInput = document.querySelector("#enter-city");
   searchCity(searchInput.value);
 }
+searchCity("Paris");
 let searchCityForm = document.querySelector("#search-city-form");
 searchCityForm.addEventListener("submit", submitCity);
