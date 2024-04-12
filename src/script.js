@@ -35,33 +35,36 @@ function changeWeather(response) {
   console.log(response);
   heading.innerHTML = response.data.city;
   tempImg.innerHTML = `<img src="${response.data.condition.icon_url}" alt="${response.data.condition.icon}" width="90"/>`;
-  tempNumber.innerHTML = Math.round(response.data.temperature.current);
-  // if (
-  //   response.data.country == "United States of America" ||
-  //   response.data.country == "Myanmar" ||
-  //   response.data.country == "Liberia"
-  // ) {
-  //   tempScale.innerHTML = `°F`;
-  // } else {
-  //   tempScale.innerHTML = `°C`;
-  // }
-  tempScale.innerHTML = `°C`;
+  if (
+    response.data.country == "United States of America" ||
+    response.data.country == "Myanmar" ||
+    response.data.country == "Liberia"
+  ) {
+    tempNumber.innerHTML = Math.round(
+      (response.data.temperature.current * 9) / 5 + 32
+    );
+    tempScale.innerHTML = `°F`;
+  } else {
+    tempNumber.innerHTML = Math.round(response.data.temperature.current);
+    tempScale.innerHTML = `°C`;
+  }
   currentDate.innerHTML = returnDate(date);
   sky.innerHTML = response.data.condition.description;
   wordHumidity.innerHTML = `Humidity: `;
   humidity.innerHTML = `${response.data.temperature.humidity}%`;
   comma.innerHTML = `,`;
   wordWind.innerHTML = `Wind: `;
-  // if (
-  //   response.data.country == "United States of America" ||
-  //   response.data.country == "Myanmar" ||
-  //   response.data.country == "Liberia"
-  // ) {
-  //   windSpeed.innerHTML = `${response.data.wind.speed}mph`;
-  // } else {
-  //   windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
-  // }
-  windSpeed.innerHTML = `${response.data.wind.speed}km/h`;
+  if (
+    response.data.country == "United States of America" ||
+    response.data.country == "Myanmar" ||
+    response.data.country == "Liberia"
+  ) {
+    windSpeed.innerHTML = `${
+      Math.round((response.data.wind.speed / 1.609) * 100) / 100
+    } mph`;
+  } else {
+    windSpeed.innerHTML = `${response.data.wind.speed} km/h`;
+  }
 }
 function searchCity(city) {
   let apiKey = `d804a6ef932oaf3dbf673f68a8ff6cta`;
